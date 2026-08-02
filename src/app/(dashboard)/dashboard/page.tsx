@@ -129,88 +129,99 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* ─── NEW ENTERPRISE SUITE QUICK ACCESS LAUNCHER ───────────────────────── */}
-      <div className="bg-gradient-to-r from-slate-900 via-[#0F1626] to-purple-950 p-5 rounded-3xl border border-purple-500/20 shadow-xl space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-white font-extrabold text-sm uppercase tracking-wider">
-            <Sparkles className="text-amber-400" size={18} /> Enterprise Feature Modules Quick Access
+      {/* ─── NEW COMPETITOR PRO SUITE SHOWCASE HUB ───────────────────────────── */}
+      <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-purple-950 p-6 rounded-3xl border border-indigo-500/30 shadow-2xl space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center">
+              <Sparkles size={20} className="text-amber-400" />
+            </div>
+            <div>
+              <h2 className="text-base font-extrabold text-white tracking-wide flex items-center gap-2">
+                PRO COMPETITOR SUITE MODULES
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">
+                  Vyapar + Zoho + Lightspeed + QuickBooks
+                </span>
+              </h2>
+              <p className="text-xs text-slate-400">All top market features built directly into your InventoryPro account</p>
+            </div>
           </div>
-          <span className="text-[10px] font-mono font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full">
-            All 5 Suite Modules Active
+          <span className="text-xs font-mono font-bold text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-xl self-start sm:self-auto">
+            100% Live & Ready
           </span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {/* POS Terminal */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+          {/* Vyapar Udhar Ledger */}
+          <Link
+            href="/dashboard/customers/ledger"
+            className="bg-slate-900/90 hover:bg-indigo-600/30 border border-indigo-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
+          >
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <CreditCard size={18} />
+            </div>
+            <span className="text-xs font-bold text-white leading-tight">Vyapar Udhar Ledger</span>
+            <span className="text-[9px] text-indigo-300 font-mono bg-indigo-500/20 px-2 py-0.5 rounded-full">WhatsApp Reminders</span>
+          </Link>
+
+          {/* Vyapar Barcode Studio */}
+          <Link
+            href="/dashboard/products/barcodes"
+            className="bg-slate-900/90 hover:bg-amber-600/30 border border-amber-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
+          >
+            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Package size={18} />
+            </div>
+            <span className="text-xs font-bold text-white leading-tight">Barcode Label Studio</span>
+            <span className="text-[9px] text-amber-300 font-mono bg-amber-500/20 px-2 py-0.5 rounded-full">Print Sticker Tags</span>
+          </Link>
+
+          {/* Zoho Batch Expiry */}
+          <Link
+            href="/dashboard/inventory/batches"
+            className="bg-slate-900/90 hover:bg-rose-600/30 border border-rose-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
+          >
+            <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <AlertTriangle size={18} />
+            </div>
+            <span className="text-xs font-bold text-white leading-tight">Zoho Batch Expiry</span>
+            <span className="text-[9px] text-rose-300 font-mono bg-rose-500/20 px-2 py-0.5 rounded-full">FEFO Date Tracker</span>
+          </Link>
+
+          {/* Lightspeed Fast POS */}
           <Link
             href="/dashboard/pos"
-            className="bg-slate-900/80 hover:bg-purple-600/30 border border-purple-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
+            className="bg-slate-900/90 hover:bg-purple-600/30 border border-purple-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
           >
             <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-110 transition-transform">
               <ShoppingCart size={18} />
             </div>
-            <span className="text-xs font-bold text-white">POS Terminal</span>
-            <span className="text-[9px] text-purple-300 font-mono">10,000+ Items</span>
+            <span className="text-xs font-bold text-white leading-tight">Lightspeed Retail POS</span>
+            <span className="text-[9px] text-purple-300 font-mono bg-purple-500/20 px-2 py-0.5 rounded-full">Touch Register Grid</span>
           </Link>
 
-          {/* Staff Payroll */}
+          {/* QuickBooks P&L */}
           <Link
-            href="/dashboard/staff"
-            className="bg-slate-900/80 hover:bg-amber-600/30 border border-amber-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
-          >
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Trophy size={18} />
-            </div>
-            <span className="text-xs font-bold text-white">Staff Payroll</span>
-            <span className="text-[9px] text-amber-300 font-mono">Fixed Salaries</span>
-          </Link>
-
-          {/* Stock Transfers */}
-          <Link
-            href="/dashboard/inventory/transfers"
-            className="bg-slate-900/80 hover:bg-blue-600/30 border border-blue-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
-          >
-            <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <ArrowRightLeft size={18} />
-            </div>
-            <span className="text-xs font-bold text-white">Stock Transfers</span>
-            <span className="text-[9px] text-blue-300 font-mono">Multi-Warehouse</span>
-          </Link>
-
-          {/* Vendor Payables */}
-          <Link
-            href="/dashboard/purchases"
-            className="bg-slate-900/80 hover:bg-emerald-600/30 border border-emerald-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
+            href="/dashboard/expenses/pnl"
+            className="bg-slate-900/90 hover:bg-emerald-600/30 border border-emerald-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
           >
             <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Truck size={18} />
-            </div>
-            <span className="text-xs font-bold text-white">Purchase Orders</span>
-            <span className="text-[9px] text-emerald-300 font-mono">Pay Vendors</span>
-          </Link>
-
-          {/* Expenses Outflows */}
-          <Link
-            href="/dashboard/expenses"
-            className="bg-slate-900/80 hover:bg-rose-600/30 border border-rose-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
-          >
-            <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <CreditCard size={18} />
-            </div>
-            <span className="text-xs font-bold text-white">Store Outflows</span>
-            <span className="text-[9px] text-rose-300 font-mono">Bills & Cashbook</span>
-          </Link>
-
-          {/* Reports Analytics */}
-          <Link
-            href="/dashboard/reports"
-            className="bg-slate-900/80 hover:bg-teal-600/30 border border-teal-500/30 p-3 rounded-2xl flex flex-col items-center justify-center text-center space-y-1.5 transition-all group hover:-translate-y-1"
-          >
-            <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center group-hover:scale-110 transition-transform">
               <BarChart3 size={18} />
             </div>
-            <span className="text-xs font-bold text-white">Cash Waterfall</span>
-            <span className="text-[9px] text-teal-300 font-mono">Profit Analytics</span>
+            <span className="text-xs font-bold text-white leading-tight">QuickBooks P&L</span>
+            <span className="text-[9px] text-emerald-300 font-mono bg-emerald-500/20 px-2 py-0.5 rounded-full">Net Profit Statement</span>
+          </Link>
+
+          {/* GST Tax Filing */}
+          <Link
+            href="/dashboard/reports/gst"
+            className="bg-slate-900/90 hover:bg-teal-600/30 border border-teal-500/30 p-3.5 rounded-2xl flex flex-col items-center justify-center text-center space-y-2 transition-all group hover:-translate-y-1 shadow-lg"
+          >
+            <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <ShieldCheck size={18} />
+            </div>
+            <span className="text-xs font-bold text-white leading-tight">GST Tax Filing</span>
+            <span className="text-[9px] text-teal-300 font-mono bg-teal-500/20 px-2 py-0.5 rounded-full">GSTR-1 & GSTR-3B</span>
           </Link>
         </div>
       </div>
