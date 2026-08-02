@@ -46,7 +46,7 @@ export default function CustomerLedgerPage() {
 
   // Combined list (API + fallback mock)
   const displayList = localCustomers.length > 0 ? localCustomers : [
-    { id: "cust-1", name: "antim", phone: "09755942933", creditLimit: 50000, currentBalance: 20 },
+    { id: "cust-1", name: "Metro Retail Stores", phone: "+91 98765 43210", creditLimit: 50000, currentBalance: 4500 },
     { id: "cust-2", name: "Vikram Electronics", phone: "+91 98123 45678", creditLimit: 100000, currentBalance: 12500 },
   ];
 

@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { useAuthStore } from "@/store/auth.store";
 import { cn, getInitials } from "@/lib/utils";
 import ChatGPTCopilotDrawer from "@/components/ai/ChatGPTCopilotDrawer";
+import { toast } from "sonner";
 import {
   LayoutDashboard, Package, ShoppingCart, Users, Truck,
   BarChart3, Settings, LogOut, Menu, X, Sun, Moon,
@@ -106,7 +107,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     }
   }, [isAuthenticated, isMounted, router]);
 
+  const handleClearBrowserData = () => {
+    if (typeof window !== "undefined") {
+      localStorage.clear();
+      sessionStorage.clear();
+    }
+    toast.success("Browser session reset!");
+    window.location.href = "/register";
+  };
+
   const handleLogout = async () => {
+    if (typeof window !== "undefined") {
+      localStorage.clear();
+      sessionStorage.clear();
+    }
     await logout();
     router.push("/login");
   };
@@ -191,7 +205,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </nav>
 
         {/* Sidebar Footer */}
-        <div className="border-t border-slate-800 p-3 bg-[#080D18]">
+        <div className="border-t border-slate-800 p-3 bg-[#080D18] space-y-1">
+          <button
+            onClick={handleClearBrowserData}
+            className="flex items-center gap-3 w-full px-3 py-2 rounded-xl text-xs font-bold text-amber-400 hover:bg-amber-500/10 transition-colors"
+          >
+            <RefreshCw size={16} />
+            <span>Reset Session</span>
+          </button>
           <button
             onClick={handleLogout}
             className="flex items-center gap-3 w-full px-3 py-2 rounded-xl text-xs font-bold text-rose-400 hover:bg-rose-500/10 transition-colors"
