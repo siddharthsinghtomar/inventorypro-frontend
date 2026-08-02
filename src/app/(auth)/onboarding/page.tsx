@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { useAuthStore } from "@/store/auth.store";
 import apiClient from "@/lib/api";
-import { registerTenantSchema, type RegisterTenantInput } from "@inventorypro/validators";
+import { registerTenantSchema, type RegisterTenantInput } from "@/lib/validators";
 import {
   Building2, MapPin, Phone, Globe, FileText, Loader2,
   ArrowRight, ArrowLeft, CheckCircle2, Package,

@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiClient } from "@/lib/api";
-import type { CreateSaleInput, PaginationInput } from "@inventorypro/validators";
+import type { CreateSaleInput, PaginationInput } from "@/lib/validators";
 import { QUERY_KEYS, STOCK_AFFECTED_QUERY_KEYS } from "@/constants/queryKeys";
 
 export function useSales(pagination: PaginationInput) {

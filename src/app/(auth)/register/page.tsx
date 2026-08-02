@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Package, Eye, EyeOff, Loader2, ArrowRight, CheckCircle2 } from "lucide-react";
-import { registerSchema, type RegisterInput } from "@inventorypro/validators";
+import { registerSchema, type RegisterInput } from "@/lib/validators";
 import apiClient from "@/lib/api";
 
 const benefits = [

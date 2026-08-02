@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Package, Eye, EyeOff, Loader2, ArrowRight } from "lucide-react";
-import { loginSchema, type LoginInput } from "@inventorypro/validators";
+import { loginSchema, type LoginInput } from "@/lib/validators";
 import { useAuthStore } from "@/store/auth.store";
 
 export default function LoginPage() {
