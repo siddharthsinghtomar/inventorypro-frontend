@@ -2,25 +2,44 @@ import axios, { AxiosError } from "axios";
 
 import { env } from "@/env";
 
-const API_URL = env.NEXT_PUBLIC_API_URL;
+const getBaseUrl = () => {
+  if (typeof window !== "undefined") {
+    const custom = localStorage.getItem("custom_api_url");
+    if (custom) return `${custom}/api/v1`;
+    if (window.location.protocol === "https:") {
+      const publicUrl = env.NEXT_PUBLIC_API_URL || "";
+      if (!publicUrl || publicUrl.includes("localhost")) {
+        return "https://fancy-bats-pick.loca.lt/api/v1";
+      }
+    }
+  }
+  return `${env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/v1`;
+};
 
 export const apiClient = axios.create({
-  baseURL: `${API_URL}/api/v1`,
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true, // For httpOnly cookie refresh token
-  timeout: 30000,
+  baseURL: getBaseUrl(),
+  headers: {
+    "Content-Type": "application/json",
+    "Bypass-Tunnel-Remainder": "true",
+    "bypass-tunnel-remainder": "true",
+  },
+  withCredentials: true,
+  timeout: 15000,
 });
 
 // ─── Request Interceptor ──────────────────────────────────────
 apiClient.interceptors.request.use((config) => {
-  // Attach access token from localStorage
   if (typeof window !== "undefined") {
+    if (window.location.protocol === "https:" && config.baseURL?.includes("localhost")) {
+      config.baseURL = "https://fancy-bats-pick.loca.lt/api/v1";
+    }
+    config.headers["Bypass-Tunnel-Remainder"] = "true";
+
     const token = localStorage.getItem("accessToken");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // Attach tenant slug if available
     const tenantSlug = localStorage.getItem("tenantSlug");
     if (tenantSlug) {
       config.headers["x-tenant-slug"] = tenantSlug;
