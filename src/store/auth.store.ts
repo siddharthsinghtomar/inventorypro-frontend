@@ -54,9 +54,7 @@ export const useAuthStore = create<AuthState>()(
 
       setDemoUser: (details) => {
         if (typeof window !== "undefined") {
-          localStorage.removeItem("inventorypro_staff_targets");
-          localStorage.removeItem("inventorypro_expenses");
-          localStorage.removeItem("inventorypro_sales");
+          localStorage.clear();
         }
 
         const firstName = details?.firstName || (details?.email ? details.email.split("@")[0] : "New");

@@ -23,16 +23,7 @@ interface StaffTarget {
   payoutStatus: "PAID" | "UNPAID";
 }
 
-const mockTargets: StaffTarget[] = [
-  { id: "st-1", name: "Store Admin Owner", role: "Store Manager / Admin", department: "Executive Store Operations", monthlyTarget: 1500000, achievedSales: 1851336.68, commissionRate: 2.5, bonusEarned: 46283, payoutStatus: "UNPAID" },
-  { id: "st-2", name: "Rahul Sharma", role: "Store Sales Manager", department: "Electronics & Tech", monthlyTarget: 1500000, achievedSales: 1845000, commissionRate: 1.0, bonusEarned: 18450, payoutStatus: "UNPAID" },
-  { id: "st-3", name: "Vikram Singh", role: "Wholesale B2B Executive", department: "Corporate Accounts", monthlyTarget: 2500000, achievedSales: 2890000, commissionRate: 1.5, bonusEarned: 43350, payoutStatus: "UNPAID" },
-  { id: "st-4", name: "Priya Patel", role: "Senior Retail Associate", department: "Mobiles & Gadgets", monthlyTarget: 1000000, achievedSales: 1250000, commissionRate: 1.0, bonusEarned: 12500, payoutStatus: "UNPAID" },
-  { id: "st-5", name: "Neha Gupta", role: "Fashion Retail Lead", department: "Apparel & Accessories", monthlyTarget: 950000, achievedSales: 1120000, commissionRate: 1.2, bonusEarned: 13440, payoutStatus: "UNPAID" },
-  { id: "st-6", name: "Rajesh Kumar", role: "Senior POS Cashier", department: "Checkout Counter 1", monthlyTarget: 800000, achievedSales: 640000, commissionRate: 1.0, bonusEarned: 6400, payoutStatus: "UNPAID" },
-  { id: "st-7", name: "Amit Verma", role: "POS Cashier Specialist", department: "Checkout Counter 2", monthlyTarget: 800000, achievedSales: 640000, commissionRate: 1.0, bonusEarned: 6400, payoutStatus: "UNPAID" },
-  { id: "st-8", name: "Anita Sharma", role: "Inventory Supervisor", department: "Warehouse & Stock Log", monthlyTarget: 500000, achievedSales: 450000, commissionRate: 1.0, bonusEarned: 4500, payoutStatus: "UNPAID" },
-];
+const mockTargets: StaffTarget[] = [];
 
 export default function StaffTargetsPage() {
   const user = useAuthStore((state) => state.user);
