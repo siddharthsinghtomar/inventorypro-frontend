@@ -53,12 +53,24 @@ export const useAuthStore = create<AuthState>()(
       isLoading: false,
 
       setDemoUser: (details) => {
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("inventorypro_staff_targets");
+          localStorage.removeItem("inventorypro_expenses");
+          localStorage.removeItem("inventorypro_sales");
+        }
+
+        const firstName = details?.firstName || (details?.email ? details.email.split("@")[0] : "New");
+        const lastName = details?.lastName || "User";
+        const email = details?.email || "newuser@inventorypro.com";
+        const storeName = `${firstName}'s Store`;
+        const slug = `${firstName.toLowerCase().replace(/[^a-z0-9]/g, "")}-${Date.now().toString().slice(-4)}`;
+
         const user = {
           id: `usr-${Date.now()}`,
-          email: details?.email || "admin@inventorypro.com",
-          firstName: details?.firstName || (details?.email ? details.email.split("@")[0] : "Admin"),
-          lastName: details?.lastName || "User",
-          phone: details?.phone || "+91 98765 43210",
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          phone: details?.phone || "",
           status: "ACTIVE",
           isSuperAdmin: true,
           isEmailVerified: true,
@@ -66,16 +78,16 @@ export const useAuthStore = create<AuthState>()(
           roleDisplayName: "Store Administrator",
         };
         const tenant = {
-          id: "tenant-1",
-          name: "InventoryPro Store",
-          slug: "flagship-store",
+          id: `tenant-${Date.now()}`,
+          name: storeName,
+          slug: slug,
           status: "ACTIVE",
           currency: "INR",
         };
-        const accessToken = `demo-token-${Date.now()}`;
+        const accessToken = `jwt-fresh-${Date.now()}`;
         if (typeof window !== "undefined") {
           localStorage.setItem("accessToken", accessToken);
-          localStorage.setItem("tenantSlug", "flagship-store");
+          localStorage.setItem("tenantSlug", slug);
         }
         set({
           user,
